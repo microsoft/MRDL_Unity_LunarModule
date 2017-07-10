@@ -1,0 +1,4 @@
+Dithering shaders used under the Creative Commons Attribution-ShareAlike license.
+Original source:
+http://wiki.unity3d.com/index.php/Dithering_Shader
+Shaders have been extended and modified to support use in particle systems.
