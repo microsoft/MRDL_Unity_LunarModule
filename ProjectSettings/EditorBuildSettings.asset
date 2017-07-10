@@ -5,12 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/HoloLensXboxControllerInput/ExampleScene.unity
-    guid: 10d3bf846d58be74eb1d09c693dcf2b4
-  - enabled: 0
+  - enabled: 1
     path: Assets/MRDesignLab_LunarModule/Scenes/Main.unity
     guid: 1b7d0944285453b48bea85a15096713c
-  - enabled: 1
-    path: Assets/InputTest.unity
+  - enabled: 0
+    path: 
+    guid: 10d3bf846d58be74eb1d09c693dcf2b4
+  - enabled: 0
+    path: 
     guid: 74f44f9283a5f7043af4bd27afba7c41
