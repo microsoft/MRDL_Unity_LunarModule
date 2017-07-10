@@ -10,6 +10,7 @@ using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
+using System.Collections.Generic;
 #endif
 
 //#if UNITY_EDITOR || UNITY_WSA
