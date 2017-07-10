@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 
 #if !UNITY_EDITOR && UNITY_WSA
 using System.Diagnostics;
@@ -10,7 +11,6 @@ using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
-using System.Collections.Generic;
 #endif
 
 //#if UNITY_EDITOR || UNITY_WSA
@@ -19,7 +19,7 @@ using UnityEngine;
 
 namespace HidControllerInput
 {
-    public class DeviceState
+	public class DeviceState
 	{
 		public string DeviceId;
 
@@ -46,8 +46,8 @@ namespace HidControllerInput
 		public bool leftShoulder, rightShoulder, leftTrigger, rightTrigger;
 		public bool start, back, logo, leftStickClick, rightStickClick;
 
-        // PS controller
-        public bool BigPad;
+		// PS controller
+		public bool BigPad;
 
 		public static int GetControllerCount()
 		{
@@ -218,8 +218,8 @@ namespace HidControllerInput
 		}
 
 		public void ReportControl(int id, float state)
-        {                
-            if (gamepadType == EGamepadType.PS4DS4_BT)
+		{
+			if (gamepadType == EGamepadType.PS4DS4_BT)
 			{
 				float range = 255f;
 				switch (id)
@@ -251,8 +251,13 @@ namespace HidControllerInput
 						break;
 				}
 			}
-			else if (gamepadType == EGamepadType.X360_USB)
+			else if (gamepadType == EGamepadType.X360_USB || gamepadType == EGamepadType.XBONES_BT)
 			{
+				// Super hack for Xbox One S controller support on Hololens.  Incoming button ids are offset by 2??
+				if (gamepadType == EGamepadType.XBONES_BT && id < 18)
+				{
+					id -= 2;
+				}
 				float range = 65535f;
 				switch (id)
 				{
@@ -285,40 +290,6 @@ namespace HidControllerInput
 						break;
 				}
 			}
-            else if (gamepadType == EGamepadType.XBONES_BT)
-            {
-                float range = 65535f;
-                switch (id)
-                {
-                    case 3: A = true; break;
-                    case 4: B = true; break;
-                    case 5: X = true; break;
-                    case 6: Y = true; break;
-                    case 7: leftShoulder = true; break;
-                    case 8: rightShoulder = true; break;
-                    case 9: back = true; break;
-                    case 10: start = true; break;
-                    case 11: leftStickClick = true; break;
-                    case 12: rightStickClick = true; break;
-                    case 48: LeftStick.x = processJoy(state, range); break;
-                    case 49: LeftStick.y = processJoy(state, range); break;
-                    case 50:
-                        {
-                            // Still need to find axes where triggers are separate
-                            float halfRange = range / 2f;
-                            Triggers.x = Math.Max(0, state - (halfRange + 0.5f)) / (halfRange - 127.5f);
-                            Triggers.y = Math.Max(0, -(state - halfRange)) / (halfRange - 128f);
-                        }
-                        break;
-                    case 51: RightStick.x = processJoy(state, range); break;
-                    case 52: RightStick.y = processJoy(state, range); break;
-                    case 57:
-                        SetDPadNum(gamepadType, (int)state);
-                        break;
-                    default:
-                        break;
-                }
-            }
 			else if (gamepadType == EGamepadType.EIGP20_BT)
 			{
 				float range = 255f;

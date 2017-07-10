@@ -6001,7 +6001,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4392005589088056, guid: 158416f52ab4a884594de66d6456f55b, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114554331570277490, guid: 158416f52ab4a884594de66d6456f55b,
         type: 2}
@@ -6704,7 +6704,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 709546996}
-  m_LocalRotation: {x: 0.003361577, y: -0.99872863, z: -0.0030398446, w: -0.05020737}
+  m_LocalRotation: {x: 0.0033615767, y: -0.99872863, z: -0.0030398446, w: -0.05020737}
   m_LocalPosition: {x: 0.017499998, y: 0.226, z: 0.0415}
   m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
   m_Children:
@@ -7057,52 +7057,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 741342140}
   m_Mesh: {fileID: 4300018, guid: 237262b29f765234d8c463ffd8af1d14, type: 3}
---- !u!1001 &761739466
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1115650949}
-    m_Modifications:
-    - target: {fileID: 400002, guid: 2ab90e690b7b4164c9da98d16179c1d5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 2ab90e690b7b4164c9da98d16179c1d5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 2ab90e690b7b4164c9da98d16179c1d5, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 2ab90e690b7b4164c9da98d16179c1d5, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 2ab90e690b7b4164c9da98d16179c1d5, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 2ab90e690b7b4164c9da98d16179c1d5, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 2ab90e690b7b4164c9da98d16179c1d5, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 2ab90e690b7b4164c9da98d16179c1d5, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 2ab90e690b7b4164c9da98d16179c1d5, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &761739467 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400002, guid: 2ab90e690b7b4164c9da98d16179c1d5, type: 2}
-  m_PrefabInternal: {fileID: 761739466}
 --- !u!1 &776377569
 GameObject:
   m_ObjectHideFlags: 0
@@ -8110,7 +8064,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4857426404074426, guid: 82bbf2912fad1134baba6fe05f04060f, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 82bbf2912fad1134baba6fe05f04060f, type: 2}
@@ -9429,7 +9383,7 @@ Transform:
   m_LocalScale: {x: 0.3458385, y: 0.34583583, z: 0.34583583}
   m_Children: []
   m_Father: {fileID: 1796834549}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &974437700
 GameObject:
@@ -14322,7 +14276,6 @@ Transform:
   - {fileID: 1271834735}
   - {fileID: 2043506841}
   - {fileID: 1827695266}
-  - {fileID: 761739467}
   m_Father: {fileID: 825768083}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -120, z: 0}
@@ -19681,10 +19634,10 @@ MonoBehaviour:
   Smoothing: 1
   Lifetime: 0
   ReferenceDirection: 1
-  MinDistance: 1
+  MinDistance: 1.25
   MaxDistance: 2
   MinViewDegrees: 0
-  MaxViewDegrees: 0
+  MaxViewDegrees: 5
   AspectV: 1
   IgnoreAngleClamp: 0
   IgnoreDistanceClamp: 0
@@ -21830,9 +21783,9 @@ Transform:
   - {fileID: 673259636}
   - {fileID: 321250640}
   - {fileID: 1673656494}
-  - {fileID: 969698701}
   - {fileID: 708173382}
   - {fileID: 409665458}
+  - {fileID: 969698701}
   - {fileID: 1437309010}
   - {fileID: 1323696538}
   m_Father: {fileID: 0}

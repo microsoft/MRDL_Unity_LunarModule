@@ -97,7 +97,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _PulseSize: 3.8922844
+    - _PulseSize: 0.76397705
     - _PulseWidthBack: 0.89
     - _PulseWidthFront: 0.04999999
     - _SideScale: 12
@@ -113,5 +113,5 @@ Material:
     - _GradientCenter: {r: 0.8446796, g: -1.5858436, b: 2.5304847, a: 0}
     - _GradientCenterA: {r: 0.027277049, g: -1.2700025, b: 3.4682727, a: 0}
     - _GradientCenterB: {r: 0, g: -100000, b: 0, a: 0}
-    - _PulseCenter: {r: -0.0006230124, g: 0.0019184556, b: 0.098479316, a: 0}
+    - _PulseCenter: {r: -0, g: -0, b: -0, a: 0}
     - _PulseColor: {r: -0, g: 0.18828604, b: 0.34558824, a: 1}
