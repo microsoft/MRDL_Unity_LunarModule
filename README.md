@@ -22,7 +22,7 @@ To use this prefab, drag it into your scene and assign a button prefab. Then ent
 
 <img src="https://github.com/Microsoft/MRDesignLabs_Unity_LunarModule/blob/master/External/ReadMeImages/LM_SimpleMenuCollection.PNG" alt="Simple menu collection">
 
-**Hand Coach** - *Assets/MRDesignLab_LunarModule/Prefabs/HandCoach* - this prefab enables devs to create standardized tutorials for their apps. It provides an interface for demonstrate left or right handed gestures, including directional motion. Visual options include ghosting, highlighting and color changes for lost tracking.
+**Hand Coach** - *Assets/MRDesignLab_LunarModule/Prefabs/HandCoach* - this prefab enables devs to create standardized tutorials for their apps. It provides an interface for demonstrating left or right handed gestures, including directional motion. Visual options include ghosting, highlighting and color changes for lost tracking.
 
 <img src="https://github.com/Microsoft/MRDesignLabs_Unity_LunarModule/blob/master/External/ReadMeImages/LM_HandCoach.PNG" alt="Hand coach">
 
