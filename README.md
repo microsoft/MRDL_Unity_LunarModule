@@ -8,7 +8,7 @@ This repo is where Microsoft's Windows Mixed Reality Design team publishes examp
 <img src="https://github.com/Microsoft/MRDesignLabs_Unity_LunarModule/blob/master/External/ReadMeImages/LM_hero.jpg" alt="Lunar Module sample app">
 
 
-Lunar Module is a open-source sample app from Microsoft's Mixed Reality Design Labs. This project is a spiritual sequel to the 1979 Atari classic, *Lunar Lander*. You can learn how to extend Hololens' base gestures with two hand tracking and xbox controller input, reactive objects to surface mapping and plane finding, and simple menu systems. You can use this project's components to create your own mixed reality app experience. 
+Lunar Module is a open-source sample app from Microsoft's Mixed Reality Design Labs, it is a spiritual sequel to the 1979 Atari classic, *Lunar Lander*. This sample app will demonstrate how to extend Hololens' base gestures with two hand tracking and xbox controller input, reactive objects to surface mapping and plane finding, and simple menu systems. You can use this project's components to create your own mixed reality app experience. 
 
 
 # More from Mixed Reality Design Labs #
