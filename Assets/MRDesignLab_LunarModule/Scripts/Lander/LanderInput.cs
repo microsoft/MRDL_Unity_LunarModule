@@ -10,14 +10,40 @@ namespace MRDL
 {
     public class LanderInput : Singleton<LanderInput>
     {
+        public enum JoystickAxisEnum
+        {
+            LeftStickX,
+            LeftStickY,
+            RightStickX,
+            RightStickY,
+        }
+
+        [Header ("Input mapping")]
+        public JoystickAxisEnum GamepadYAxis;
+        public JoystickAxisEnum GamepadXAxis;
+        public JoystickAxisEnum GamepadZAxis;
+
+        public bool GamepadYAxisInvert = false;
+        public bool GamepadXAxisInvert = false;
+        public bool GamepadZAxisInvert = false;
+
+        [HideInInspector]
         public KeyCode EditorHorzAdd;
+        [HideInInspector]
         public KeyCode EditorHorzSub;
+        [HideInInspector]
         public KeyCode EditorVertAdd;
+        [HideInInspector]
         public KeyCode EditorVertSub;
+        [HideInInspector]
         public KeyCode EditorUpAdd;
+        [HideInInspector]
         public KeyCode EditorUpSub;
+        [HideInInspector]
         public KeyCode EditorThrustAdd;
+        [HideInInspector]
         public KeyCode EditorThrustSub;
+        [HideInInspector]
 
         public Vector3 FrameRotation {
             get {
@@ -48,6 +74,7 @@ namespace MRDL
             }
         }
 
+        [Header("Gameplay settings")]
         public bool ApplyInput = true;
 
         public ThrottleVisibilityEnum ThrottleVisibility = ThrottleVisibilityEnum.Normal;
@@ -184,20 +211,74 @@ namespace MRDL
             switch (this.InputType) {
                 case InputTypeEnum.Gamepad:
                 case InputTypeEnum.Oasis:
-                    // TEMP - disable this check because it's returning false erroniously
-                    //if (InputSources.Instance.hidGamepad.IsPresent()) {
-                        frameRotation.y = InputSources.Instance.hidGamepad.leftJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
-                        frameRotation.x = InputSources.Instance.hidGamepad.rightJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
-                        frameRotation.z = -InputSources.Instance.hidGamepad.rightJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
-                        targetThrust = InputSources.Instance.hidGamepad.trigVector.y;
-                    //}
-                    
-                    /*if (InputSources.Instance.unityGamepad.IsPresent()) {
-                        frameRotation.y = Input.GetAxis(InputSourceUnityGamepad.AxisLeftStickV) * GamepadTrackingSpeed * Time.deltaTime;
-                        frameRotation.x = Input.GetAxis(InputSourceUnityGamepad.AxisLeftStickH) * GamepadTrackingSpeed * Time.deltaTime;
-                        frameRotation.x = Input.GetAxis(InputSourceUnityGamepad.AxisRightStickH) * GamepadTrackingSpeed * Time.deltaTime;
-                        targetThrust = Input.GetAxis(InputSourceUnityGamepad.TriggerShared);
-                    }*/
+                    switch (GamepadXAxis)
+                    {
+                        case JoystickAxisEnum.LeftStickX:
+                        default:
+                            frameRotation.x = InputSources.Instance.hidGamepad.leftJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
+                            break;
+
+                        case JoystickAxisEnum.LeftStickY:
+                            frameRotation.x = InputSources.Instance.hidGamepad.leftJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
+                            break;
+
+                        case JoystickAxisEnum.RightStickX:
+                            frameRotation.x = InputSources.Instance.hidGamepad.rightJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
+                            break;
+
+                        case JoystickAxisEnum.RightStickY:
+                            frameRotation.x = InputSources.Instance.hidGamepad.rightJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
+                            break;
+
+                    }
+
+                    switch (GamepadYAxis)
+                    {
+                        case JoystickAxisEnum.LeftStickX:
+                        default:
+                            frameRotation.y = InputSources.Instance.hidGamepad.leftJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
+                            break;
+
+                        case JoystickAxisEnum.LeftStickY:
+                            frameRotation.y = InputSources.Instance.hidGamepad.leftJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
+                            break;
+
+                        case JoystickAxisEnum.RightStickX:
+                            frameRotation.y = InputSources.Instance.hidGamepad.rightJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
+                            break;
+
+                        case JoystickAxisEnum.RightStickY:
+                            frameRotation.y = InputSources.Instance.hidGamepad.rightJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
+                            break;
+
+                    }
+
+                    switch (GamepadZAxis)
+                    {
+                        case JoystickAxisEnum.LeftStickX:
+                        default:
+                            frameRotation.z = InputSources.Instance.hidGamepad.leftJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
+                            break;
+
+                        case JoystickAxisEnum.LeftStickY:
+                            frameRotation.z = InputSources.Instance.hidGamepad.leftJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
+                            break;
+
+                        case JoystickAxisEnum.RightStickX:
+                            frameRotation.z = InputSources.Instance.hidGamepad.rightJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
+                            break;
+
+                        case JoystickAxisEnum.RightStickY:
+                            frameRotation.z = InputSources.Instance.hidGamepad.rightJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
+                            break;
+
+                    }
+
+                    frameRotation.x *= (GamepadXAxisInvert ? -1 : 1);
+                    frameRotation.y *= (GamepadYAxisInvert ? -1 : 1);
+                    frameRotation.z *= (GamepadZAxisInvert ? -1 : 1);
+
+                    targetThrust = InputSources.Instance.hidGamepad.trigVector.y + InputSources.Instance.hidGamepad.trigVector.x;
                     break;
 
                 case InputTypeEnum.Hololens:

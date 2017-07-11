@@ -176,8 +176,8 @@ namespace MRDL
                         handCoach.CheckTracking = HandCoach.HandVisibilityEnum.Both;
                         handCoach.Ghosting = HandCoach.HandVisibilityEnum.None;
                         handCoach.Highlight = HandCoach.HandVisibilityEnum.Both;
-                        handCoach.RightGesture = HandCoach.HandGestureEnum.None;
-                        handCoach.LeftGesture = HandCoach.HandGestureEnum.None;
+                        handCoach.RightGesture = HandCoach.HandGestureEnum.Ready;
+                        handCoach.LeftGesture = HandCoach.HandGestureEnum.Ready;
                         handCoach.RightDirection = HandCoach.HandDirectionEnum.None;
                         handCoach.LeftDirection = HandCoach.HandDirectionEnum.None;
                         if (handCoach.Tracking == HandCoach.HandVisibilityEnum.Both) {
