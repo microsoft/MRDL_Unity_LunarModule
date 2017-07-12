@@ -2865,6 +2865,31 @@ Prefab:
       propertyPath: startButton
       value: 
       objectReference: {fileID: 969698696}
+    - target: {fileID: 114492949870519812, guid: aba327c4bc2da354f9f67a3ceb67e8e5,
+        type: 2}
+      propertyPath: GamepadXAxis
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114492949870519812, guid: aba327c4bc2da354f9f67a3ceb67e8e5,
+        type: 2}
+      propertyPath: GamepadYAxis
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114492949870519812, guid: aba327c4bc2da354f9f67a3ceb67e8e5,
+        type: 2}
+      propertyPath: GamepadXAxisInvert
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114492949870519812, guid: aba327c4bc2da354f9f67a3ceb67e8e5,
+        type: 2}
+      propertyPath: GamepadYAxisInvert
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114492949870519812, guid: aba327c4bc2da354f9f67a3ceb67e8e5,
+        type: 2}
+      propertyPath: DuplicateThumbstickYAxis
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aba327c4bc2da354f9f67a3ceb67e8e5, type: 2}
   m_IsPrefabParent: 0
@@ -6693,7 +6718,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 709546996}
-  m_LocalRotation: {x: 0.0033615762, y: -0.9987285, z: -0.003039844, w: -0.05020736}
+  m_LocalRotation: {x: 0.0033615765, y: -0.99872863, z: -0.0030398446, w: -0.05020737}
   m_LocalPosition: {x: 0.017499998, y: 0.226, z: 0.0415}
   m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
   m_Children:
@@ -18089,6 +18114,11 @@ Prefab:
       propertyPath: fitBox
       value: 
       objectReference: {fileID: 321250636}
+    - target: {fileID: 114807440581642608, guid: 9019f06e67b297f46bc879c5dedab4e6,
+        type: 2}
+      propertyPath: currentRoom
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9019f06e67b297f46bc879c5dedab4e6, type: 2}
   m_IsPrefabParent: 0
