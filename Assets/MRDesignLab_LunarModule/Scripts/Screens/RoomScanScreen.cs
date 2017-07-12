@@ -208,6 +208,14 @@ namespace MRDL
                 ScanMessage);
 
             while (RoomScanManager.Instance.IsProcessing) {
+
+#if UNITY_EDITOR
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    RoomScanManager.Instance.FinishScanning();
+                }
+#endif
+
                 float progress = 0.1f;
                 string message = ScanMessage;
                 Color color = PoorColor;
