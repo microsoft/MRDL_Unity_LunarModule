@@ -237,11 +237,11 @@ namespace MRDL
                             frameRotation.x = InputSources.Instance.hidGamepad.leftJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
                             if (GamepadXAxisInvert)
                             {
-                                frameRotation.x -= InputSources.Instance.hidGamepad.rightJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
+                                frameRotation.x += InputSources.Instance.hidGamepad.rightJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
                             }
                             else
                             {
-                                frameRotation.x += InputSources.Instance.hidGamepad.rightJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
+                                frameRotation.x -= InputSources.Instance.hidGamepad.rightJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
                             }
                             break;
 
@@ -249,11 +249,11 @@ namespace MRDL
                             frameRotation.x = InputSources.Instance.hidGamepad.leftJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
                             if (GamepadXAxisInvert)
                             {
-                                frameRotation.x -= InputSources.Instance.hidGamepad.rightJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
+                                frameRotation.x += InputSources.Instance.hidGamepad.rightJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
                             }
                             else
                             {
-                                frameRotation.x += InputSources.Instance.hidGamepad.rightJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
+                                frameRotation.x -= InputSources.Instance.hidGamepad.rightJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
                             }
                             break;
 
@@ -282,11 +282,11 @@ namespace MRDL
                             frameRotation.y = InputSources.Instance.hidGamepad.leftJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
                             if (GamepadYAxisInvert)
                             {
-                                frameRotation.y -= InputSources.Instance.hidGamepad.rightJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
+                                frameRotation.y += InputSources.Instance.hidGamepad.rightJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
                             }
                             else
                             {
-                                frameRotation.y += InputSources.Instance.hidGamepad.rightJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
+                                frameRotation.y -= InputSources.Instance.hidGamepad.rightJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
                             }
                             break;
 
@@ -294,11 +294,11 @@ namespace MRDL
                             frameRotation.y = InputSources.Instance.hidGamepad.leftJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
                             if (GamepadYAxisInvert)
                             {
-                                frameRotation.y -= InputSources.Instance.hidGamepad.rightJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
+                                frameRotation.y += InputSources.Instance.hidGamepad.rightJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
                             }
                             else
                             {
-                                frameRotation.y += InputSources.Instance.hidGamepad.rightJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
+                                frameRotation.y -= InputSources.Instance.hidGamepad.rightJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
                             }
                             break;
 
@@ -327,11 +327,11 @@ namespace MRDL
                             frameRotation.z = InputSources.Instance.hidGamepad.leftJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
                             if (GamepadZAxisInvert)
                             {
-                                frameRotation.z -= InputSources.Instance.hidGamepad.rightJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
+                                frameRotation.z += InputSources.Instance.hidGamepad.rightJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
                             }
                             else
                             {
-                                frameRotation.z += InputSources.Instance.hidGamepad.rightJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
+                                frameRotation.z -= InputSources.Instance.hidGamepad.rightJoyVector.x * GamepadTrackingSpeed * Time.deltaTime;
                             }
                             break;
 
@@ -339,11 +339,11 @@ namespace MRDL
                             frameRotation.z = InputSources.Instance.hidGamepad.leftJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
                             if (GamepadZAxisInvert)
                             {
-                                frameRotation.z -= InputSources.Instance.hidGamepad.rightJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
+                                frameRotation.z += InputSources.Instance.hidGamepad.rightJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
                             }
                             else
                             {
-                                frameRotation.z += InputSources.Instance.hidGamepad.rightJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
+                                frameRotation.z -= InputSources.Instance.hidGamepad.rightJoyVector.y * GamepadTrackingSpeed * Time.deltaTime;
                             }
                             break;
                             
