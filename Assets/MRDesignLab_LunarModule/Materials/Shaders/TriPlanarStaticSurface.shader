@@ -12,6 +12,8 @@
 		_GradientMinRange("Min Range", Range(0,10)) = 0.25
 		_MinAlpha ("Min Alpha", Range(0,1)) = 0
 		_CeilingOpacity ("Ceiling Opacity", Range (0, 1)) = 0
+		_CeilingHeight ("Ceiling Height", Float) = 1000
+		_CeilingTransition ("Ceiling Transition", Range (0, 5)) = 0.5
 	}
 		SubShader{
 			Pass{ ColorMask 0 }
@@ -35,6 +37,8 @@
 			fixed _TopScale;
 			fixed _MinAlpha;
 			fixed _CeilingOpacity;
+			fixed _CeilingHeight;
+			fixed _CeilingTransition;
 			fixed4 _Color;
 
 			struct Input {
@@ -55,6 +59,12 @@
 					ceilingSubtract = ((1 - _CeilingOpacity) * topAbsNormal);
 				}
 
+				float heightSubtract = 0;
+				// If we're above ceiling height
+				if (IN.worldPos.y > _CeilingHeight) {
+					heightSubtract = clamp((IN.worldPos.y - _CeilingHeight) / _CeilingTransition, 0, 1);
+				}
+
 				float gradientA = clamp (1 - ((distance(IN.worldPos, _GradientCenterA.xyz) - _GradientMinRange) / _GradientMaxRange), 0, 1);
 				float gradientB = clamp (1 - ((distance(IN.worldPos, _GradientCenterB.xyz) - _GradientMinRange) / _GradientMaxRange), 0, 1);
 
@@ -62,7 +72,7 @@
 				o.Albedo = lerp(o.Albedo, side, projNormal.x);
 				o.Albedo = lerp(o.Albedo, top, projNormal.y);
 				o.Albedo *= _Color;
-				o.Alpha = clamp ((_MinAlpha - ceilingSubtract) + gradientA + gradientB, 0, 1) * _Color.a;
+				o.Alpha = clamp (clamp((_MinAlpha - ceilingSubtract) + (gradientA + gradientB), 0, 1) - heightSubtract, 0, 1) * _Color.a;
 			}
 		ENDCG
 		}
