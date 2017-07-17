@@ -14,16 +14,21 @@ namespace MRDL
         const string MoonSurfaceTag = "MoonSurface";
 
         public Action<Vector3> OnLand;
-   
+
         public float Gravity = -0.1f;
 
         public float SafeCeilingCollisionDot = 0.5f;
         public bool ApplyPhysics = true;
-        public bool UseGravity {
-            set {
-                if (value) {
+        public bool UseGravity
+        {
+            set
+            {
+                if (value)
+                {
                     gravityTarget = Vector3.up * Gravity;
-                } else {
+                }
+                else
+                {
                     Physics.gravity = Vector3.zero;
                     gravityTarget = Vector3.zero;
                 }
@@ -35,17 +40,22 @@ namespace MRDL
 
         public Vector3 DemoRotation;
 
-        public Vector3 LanderPosition {
-            get {
+        public Vector3 LanderPosition
+        {
+            get
+            {
                 return transform.position;
             }
-            set {
+            set
+            {
                 transform.position = value;
             }
         }
 
-        public Quaternion LanderRotation {
-            get {
+        public Quaternion LanderRotation
+        {
+            get
+            {
                 return transform.rotation;
             }
         }
@@ -58,20 +68,26 @@ namespace MRDL
             }
         }
 
-        public Transform LanderTransform {
-            get {
+        public Transform LanderTransform
+        {
+            get
+            {
                 return transform;
             }
         }
 
-        public bool UnsafeCollision {
-            get {
+        public bool UnsafeCollision
+        {
+            get
+            {
                 return unsafeCollision;
             }
         }
 
-        public float LanderDot {
-            get {
+        public float LanderDot
+        {
+            get
+            {
                 return landerDot;
             }
         }
@@ -80,7 +96,7 @@ namespace MRDL
         {
             get
             {
-                return Mathf.Clamp (axisLeftRight,-1f,1f);
+                return Mathf.Clamp(axisLeftRight, -1f, 1f);
             }
         }
 
@@ -88,17 +104,20 @@ namespace MRDL
         {
             get
             {
-                return Mathf.Clamp(axisFrontBack,-1f,1f);
+                return Mathf.Clamp(axisFrontBack, -1f, 1f);
             }
         }
 
-        public float AxisUpDown {
-            get {
+        public float AxisUpDown
+        {
+            get
+            {
                 return Mathf.Clamp(axisUpDown, -1f, 1f);
             }
         }
 
-        public void ForceLanding (Vector3 landPoint) {
+        public void ForceLanding(Vector3 landPoint)
+        {
             OnLand(landPoint);
         }
 
@@ -107,7 +126,8 @@ namespace MRDL
             LanderGameplay.Instance.OnGameplayStarted += OnGameplayStarted;
         }
 
-        private void OnGameplayStarted () {
+        private void OnGameplayStarted()
+        {
             // Reset
             collided = false;
             unsafeCollision = false;
@@ -116,8 +136,10 @@ namespace MRDL
             Physics.gravity = Vector3.zero;
         }
 
-        private void Update() {
-            if (!LanderGameplay.Instance.GameInProgress || LanderGameplay.Instance.Paused) {
+        private void Update()
+        {
+            if (!LanderGameplay.Instance.GameInProgress || LanderGameplay.Instance.Paused)
+            {
                 return;
             }
 
@@ -129,11 +151,16 @@ namespace MRDL
             axisFrontBack = Mathf.Lerp(axisFrontBack, -Mathf.DeltaAngle(rotationThisFrame.z, rotationLastFrame.z), 0.85f);
             axisUpDown = Mathf.Lerp(axisUpDown, -Mathf.DeltaAngle(rotationThisFrame.y, rotationLastFrame.y), 0.85f);
             rotationLastFrame = rotationThisFrame;
+
+            //we turn off rigidbody collisions if the lander is above user eye height
+            mainRigidbody.detectCollisions = LanderPosition.y <= LandingPadManager.Instance.LanderStartupPosition.y;
+
         }
 
         private void FixedUpdate()
         {
-            if (LanderGameplay.Instance.HasLanded && !LanderGameplay.Instance.HasCrashed) {
+            if (LanderGameplay.Instance.HasLanded && !LanderGameplay.Instance.HasCrashed)
+            {
                 // Shut off physics and lerp to the landing pad position
                 mainRigidbody.isKinematic = true;
                 mainRigidbody.MovePosition(Vector3.Lerp(mainRigidbody.position, LandingPadManager.Instance.LandingPadPosition, Time.deltaTime));
@@ -143,7 +170,8 @@ namespace MRDL
                 return;
             }
 
-            if (!LanderGameplay.Instance.GameInProgress || LanderGameplay.Instance.Paused) {
+            if (!LanderGameplay.Instance.GameInProgress || LanderGameplay.Instance.Paused)
+            {
                 mainRigidbody.isKinematic = true;
                 axisUpDown = 0f;
                 axisLeftRight = 0f;
@@ -156,22 +184,25 @@ namespace MRDL
             // If we're not applying physics make the rigidbody kinematic so we don't fly about
             mainRigidbody.isKinematic = !ApplyPhysics;
             // Reset angular velocity to zero every frame
-            mainRigidbody.angularVelocity = Vector3.Lerp (mainRigidbody.angularVelocity, Vector3.zero, Time.deltaTime * ForwardDampening);
+            mainRigidbody.angularVelocity = Vector3.Lerp(mainRigidbody.angularVelocity, Vector3.zero, Time.deltaTime * ForwardDampening);
 
             // Make sure the rigidbody never falls asleep
             if (mainRigidbody.IsSleeping())
                 mainRigidbody.WakeUp();
 
-            if (LanderGameplay.Instance.GameInProgress) {
+            if (LanderGameplay.Instance.GameInProgress)
+            {
                 // Rotate the lander to match the target rotation
                 mainRigidbody.MoveRotation(LanderInput.Instance.TargetRotation);
-                if (DemoRotation != Vector3.zero) {
+                if (DemoRotation != Vector3.zero)
+                {
                     LanderTransform.Rotate(DemoRotation, Space.Self);
                 }
             }
 
             // Apply up/down force
-            if (LanderInput.Instance.TargetThrust != 0) {
+            if (LanderInput.Instance.TargetThrust != 0)
+            {
                 Vector3 upForce = Vector3.up * LanderInput.Instance.TargetThrust * ForceMultiplier;
                 mainRigidbody.AddRelativeForce(upForce, ForceMode.VelocityChange);
             }
@@ -210,30 +241,36 @@ namespace MRDL
 
             if (collided)
                 return;
-            
+
             Vector3 landPoint = Vector3.zero;
             foreach (ContactPoint point in collision.contacts)
             {
                 landPoint = point.point;
-                if (point.otherCollider.CompareTag(MoonSurfaceTag)) {
+                if (point.otherCollider.CompareTag(MoonSurfaceTag))
+                {
                     float collisionDot = Vector3.Dot(point.normal, Vector3.down);
                     // If it's not a ceiling
-                    if (collisionDot < SafeCeilingCollisionDot) {
+                    if (collisionDot < SafeCeilingCollisionDot)
+                    {
                         // We're dead
                         collided = true;
                         unsafeCollision = true;
                         break;
                     }
-                } else if (point.otherCollider.CompareTag(LandingPadTag)) {
+                }
+                else if (point.otherCollider.CompareTag(LandingPadTag))
+                {
                     collided = true;
                     break;
-                } else {// it's a blocking surface and we deserve to die
+                }
+                else
+                {// it's a blocking surface and we deserve to die
                     collided = true;
                     unsafeCollision = true;
                     break;
                 }
             }
-            OnLand (landPoint);
+            OnLand(landPoint);
         }
 
         [SerializeField]

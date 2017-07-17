@@ -53,6 +53,9 @@ namespace MRDL
         [SerializeField]
         private GameObject skyBox;
 
+        [SerializeField]
+        private float cielingHeight;
+
         public RaycastHit EnvironmentHit {
             get {
                 return environmentHit;
@@ -201,6 +204,7 @@ namespace MRDL
                         meshes[i].GetComponent<MeshRenderer>().sharedMaterials = surfaceMaterials;
                     }
                     SpatialMappingManager.Instance.SurfaceMaterials = surfaceMaterials;
+                    cielingHeight = LandingPadManager.Instance.LanderStartupPosition.y;
                     break;
             }
 
@@ -209,6 +213,7 @@ namespace MRDL
             gridMaterial.SetColor("_Color", pulseColor);
             surfaceMaterial.SetColor("_Color", surfaceColor);
             surfaceMaterial.SetFloat("_MinAlpha", minRoomWalls);
+            surfaceMaterial.SetFloat("_CeilingHeight", cielingHeight);
 
             // Set the first gradient
             if (LandingPadManager.Instance.LandingPlacementConfirmed) {
