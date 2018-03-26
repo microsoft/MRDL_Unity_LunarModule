@@ -1,0 +1,4 @@
+[submodule "Assets/MixedRealityToolkit"]
+	path = Assets/MixedRealityToolkit
+	url = https://github.com/Microsoft/MixedRealityToolkit-Unity.git
+	branch = Dev_Working_Branch
