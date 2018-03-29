@@ -2,9 +2,8 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 //
-using HoloToolkit.Unity;
-using HUX;
 using System.Collections;
+using MixedRealityToolkit.Common;
 using UnityEngine;
 
 namespace MRDL
@@ -109,7 +108,7 @@ namespace MRDL
             startupPlacementConfirmed = false;
             // Instantiate a landing pad
             // Place the landing pad in front of the player to begin with
-            LandingPad.transform.position = Veil.Instance.HeadTransform.position + Veil.Instance.HeadTransform.forward;
+            LandingPad.transform.position = CameraCache.Main.transform.position + CameraCache.Main.transform.forward;
             LandingPad.gameObject.SetActive(true);
 
             bool setFirstPosition = false;

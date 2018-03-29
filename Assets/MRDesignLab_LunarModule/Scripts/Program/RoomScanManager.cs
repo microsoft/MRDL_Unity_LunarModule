@@ -16,7 +16,7 @@ namespace MRDL
     /// <summary>
     /// Manages saving, loading and scanning of room data
     /// </summary>
-    public class RoomScanManager : HUX.Utility.Singleton<RoomScanManager>
+    public class RoomScanManager : HoloToolkit.Unity.Singleton<RoomScanManager>
     {
         const int MaxRoomMeshes = 1000;
 
