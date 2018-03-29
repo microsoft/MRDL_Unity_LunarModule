@@ -7,10 +7,11 @@ using HUX.Utility;
 using System;
 using System.Collections;
 using UnityEngine;
+using MixedRealityToolkit.Common;
 
 namespace MRDL
 {
-    public class LanderOpening : Singleton<LanderOpening>
+    public class LanderOpening : MixedRealityToolkit.Common.Singleton<LanderOpening>
     {
         public float DistanceToPlayerOnSpawn;
         public float DistanceToPlayerOnPassHead;
@@ -35,9 +36,9 @@ namespace MRDL
         private IEnumerator DoLanderOpeningOverTime() {
             inPosition = false;
 
-            Vector3 directionToPad = (Veil.Instance.HeadTransform.position - LandingPadManager.Instance.LandingPad.transform.position).normalized;
+            Vector3 directionToPad = (CameraCache.Main.transform.position - LandingPadManager.Instance.LandingPad.transform.position).normalized;
 
-            startPosition = Veil.Instance.HeadTransform.position + (directionToPad * DistanceToPlayerOnSpawn);
+            startPosition = CameraCache.Main.transform.position + (directionToPad * DistanceToPlayerOnSpawn);
             startPosition.y = YPositionOnSpawn;
 
             Vector3 positionThisFrame = startPosition;
@@ -53,7 +54,7 @@ namespace MRDL
                     inPosition = true;
                 } else {
                     // adjust the head position
-                    headPosition = Veil.Instance.HeadTransform.position + (Veil.Instance.HeadTransform.right * DistanceToPlayerOnPassHead);
+                    headPosition = CameraCache.Main.transform.position + (CameraCache.Main.transform.right * DistanceToPlayerOnPassHead);
                     // move the lander along a bezier curve
                     positionThisFrame = GetPoint(startPosition, headPosition, endPosition, normalizedTime);
                     positionThisFrame.y += YPositionCurve.Evaluate(normalizedTime);

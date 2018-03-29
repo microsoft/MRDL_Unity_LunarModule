@@ -3,9 +3,10 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 //
 using HoloToolkit.Unity.SpatialMapping;
-using HUX;
+//using HUX;
 using System.Collections;
 using System.Collections.Generic;
+using MixedRealityToolkit.Common;
 using UnityEngine;
 
 namespace MRDL
@@ -13,7 +14,7 @@ namespace MRDL
     /// <summary>
     /// Creates scattered moon rocks and controls the skybox / stars / earth
     /// </summary>
-    public class EnvironmentManager : HUX.Utility.Singleton<EnvironmentManager>
+    public class EnvironmentManager : Singleton<EnvironmentManager>
     {
         public const int MoonSurfaceLayer = 9;
         public const int RoomSurfaceLayer = 12;
@@ -133,7 +134,7 @@ namespace MRDL
         }
 
         private void Update() {
-            if (Veil.Instance == null || Veil.Instance.HeadTransform == null)
+            if (CameraCache.Main == null || CameraCache.Main.transform == null)
                 return;
 
             // Don't show earth or moonlight when a menu is open
@@ -151,14 +152,14 @@ namespace MRDL
                     break;
             }
 
-            Vector3 shaderFocusPoint = Veil.Instance.HeadTransform.position;
+            Vector3 shaderFocusPoint = CameraCache.Main.transform.position;
 
             if (!LandingPadManager.Instance.LandingPlacementConfirmed || !LandingPadManager.Instance.StartupPlacementConfirmed) {
                 // Get a raycast hit from our environment
                 int layerMask = 1 << EnvironmentManager.MoonSurfaceLayer | 1 << EnvironmentManager.RoomSurfaceLayer;
                 if (Physics.Raycast(
-                    Veil.Instance.HeadTransform.position,
-                    Veil.Instance.HeadTransform.forward,
+                    CameraCache.Main.transform.position,
+                    CameraCache.Main.transform.forward,
                     out environmentHit,
                     float.MaxValue,
                     layerMask,

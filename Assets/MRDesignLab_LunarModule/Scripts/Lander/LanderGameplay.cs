@@ -263,15 +263,15 @@ namespace MRDL
                 landerStartPosition = landingPadPosition + randomPosition;
 
                 // If the position is too close to player, skip this position
-                if (Vector3.Distance(landerStartPosition, Veil.Instance.HeadTransform.position) < Settings.MinDistanceFromPlayer) {
+                if (Vector3.Distance(landerStartPosition, CameraCache.Main.transform.position) < Settings.MinDistanceFromPlayer) {
                     yield return null;
                     continue;
                 }
 
                 // If the position is behind the player, skip this position
-                Vector3 dir = landerStartPosition - Veil.Instance.HeadTransform.position;
+                Vector3 dir = landerStartPosition - CameraCache.Main.transform.position;
                 dir.y = 0f;
-                Vector3 forward = Veil.Instance.HeadTransform.forward;
+                Vector3 forward = CameraCache.Main.transform.forward;
                 forward.y = 0f;
 
                 dir.Normalize();

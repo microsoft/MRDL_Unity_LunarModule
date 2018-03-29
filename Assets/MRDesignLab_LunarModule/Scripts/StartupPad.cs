@@ -2,9 +2,10 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 //
-using HUX;
+//using HUX;
 using System.Collections.Generic;
 using UnityEngine;
+using MixedRealityToolkit.Common;
 
 namespace MRDL
 {
@@ -117,7 +118,7 @@ namespace MRDL
 
             if (setStartupPosition) {
                 Vector3 landerPosition = landerPositionTransform.position;
-                landerPosition.y = Veil.Instance.HeadTransform.position.y;
+                landerPosition.y = CameraCache.Main.transform.position.y;
                 landerPositionTransform.position = landerPosition;
                 landerObject.transform.position = landerPosition;
             }

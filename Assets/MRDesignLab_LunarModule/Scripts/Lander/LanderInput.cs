@@ -5,10 +5,11 @@
 using HUX;
 using HUX.Utility;
 using UnityEngine;
+using MixedRealityToolkit.Common;
 
 namespace MRDL
 {
-    public class LanderInput : Singleton<LanderInput>
+    public class LanderInput : MixedRealityToolkit.Common.Singleton<LanderInput>
     {
         public enum JoystickAxisEnum
         {
@@ -205,7 +206,7 @@ namespace MRDL
             }
 
             // Orient the trackball towards the player on the y axis
-            Vector3 eulerAngles = Veil.Instance.HeadTransform.eulerAngles;
+            Vector3 eulerAngles = CameraCache.Main.transform.eulerAngles;
             eulerAngles.x = 0f;
             eulerAngles.z = 0f;
             arcballParent.eulerAngles = eulerAngles;

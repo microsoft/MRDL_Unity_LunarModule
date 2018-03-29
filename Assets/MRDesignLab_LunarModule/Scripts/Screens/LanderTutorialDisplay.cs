@@ -2,12 +2,13 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 //
-using HUX;
+//using HUX;
 using HUX.Interaction;
 using HUX.Receivers;
 using System;
 using System.Collections;
 using UnityEngine;
+using MixedRealityToolkit.Common;
 
 namespace MRDL
 {
@@ -141,7 +142,7 @@ namespace MRDL
             // Wait for lander to set itself up
             // Then do a one-time rotation towards the player
             yield return null;
-            Vector3 forward = Veil.Instance.HeadTransform.forward;
+            Vector3 forward = CameraCache.Main.transform.forward;
             forward.y = 0f;
             LanderInput.Instance.SetForward(-forward.normalized);
 
