@@ -9,6 +9,7 @@ using HUX.Utility;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MixedRealityToolkit.Common;
 using UnityEngine;
 
 namespace MRDL
@@ -16,7 +17,7 @@ namespace MRDL
     /// <summary>
     /// Manages saving, loading and scanning of room data
     /// </summary>
-    public class RoomScanManager : HoloToolkit.Unity.Singleton<RoomScanManager>
+    public class RoomScanManager : MixedRealityToolkit.Common.Singleton<RoomScanManager>
     {
         const int MaxRoomMeshes = 1000;
 
