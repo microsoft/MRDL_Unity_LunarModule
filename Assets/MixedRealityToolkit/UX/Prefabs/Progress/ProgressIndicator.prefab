@@ -406,7 +406,7 @@ Animator:
   m_GameObject: {fileID: 1639736902270830}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 23a0793073e3e1944a34a996dc4cf158, type: 2}
+  m_Controller: {fileID: 9100000, guid: 83fff6ffae2e8eb4aad1f1163c1aeddf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -471,14 +471,17 @@ MonoBehaviour:
   defaultIndicatorStyle: 2
   defaultProgressStyle: 1
   defaultMessageStyle: 1
-  defaultPrefab: {fileID: 0}
-  defaultIconPrefab: {fileID: 0}
-  defaultOrbsPrefab: {fileID: 0}
-  progressBarContainer: {fileID: 0}
+  defaultPrefab: {fileID: 1245238035927764, guid: fc9784fd81c14e6458dea1b6c4c712f7,
+    type: 2}
+  defaultIconPrefab: {fileID: 1245238035927764, guid: 5d686cc5467b9e94cba2c58b3d663bff,
+    type: 2}
+  defaultOrbsPrefab: {fileID: 1877138048077504, guid: 37e55db2ee4254c44bc559df564993c2,
+    type: 2}
+  progressBarContainer: {fileID: 1639736902270830}
   progressBar: {fileID: 0}
-  messageText: {fileID: 0}
-  progressText: {fileID: 0}
-  animator: {fileID: 0}
+  messageText: {fileID: 102221980556540218}
+  progressText: {fileID: 102899416982016002}
+  animator: {fileID: 95288104088676056}
   ProgressFormat: 0.0
 --- !u!114 &114707428737167554
 MonoBehaviour:
