@@ -5,7 +5,8 @@
 using UnityEngine;
 using System;
 using System.Collections;
-using HUX.Utility;
+//using HUX.Utility;
+using HoloToolkit.Unity;
 
 namespace HUX.Buttons
 {

@@ -4,7 +4,7 @@
 //
 using UnityEngine;
 using HUX.Interaction;
-using HUX.Utility;
+using MixedRealityToolkit.Utilities;
 using HUX.Receivers;
 using HUX.Focus;
 

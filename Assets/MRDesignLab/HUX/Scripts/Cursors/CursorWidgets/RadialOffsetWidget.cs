@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using HUX.Interaction;
-using HUX.Utility;
 
 namespace HUX.Cursors
 {
