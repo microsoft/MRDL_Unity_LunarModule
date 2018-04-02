@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4006647898128146}
-  - component: {fileID: 114560165092488622}
-  - component: {fileID: 114395412184118276}
   - component: {fileID: 114132793819273052}
+  - component: {fileID: 114225985589560026}
+  - component: {fileID: 114394595527063892}
   m_Layer: 0
   m_Name: Throttle
   m_TagString: Untagged
@@ -349,7 +349,7 @@ MonoBehaviour:
   gradientRenderer: {fileID: 23420844399299916}
   backgroundRenderer: {fileID: 23160909592639718}
   markerTransform: {fileID: 4378078301392744}
---- !u!114 &114395412184118276
+--- !u!114 &114225985589560026
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -357,17 +357,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 1102496221193822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f09bc724c1c1ace45a2ec3f11ce09be9, type: 3}
+  m_Script: {fileID: 11500000, guid: b37a5e6ebb237144889743cfaaa1604b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackedObjectToReference: 0
+  transformTarget: {fileID: 0}
+--- !u!114 &114394595527063892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1102496221193822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd93f4cde14a63242bf414f241f18913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   UpdateLinkedTransform: 0
-  MoveLerpTime: 0.099999994
-  RotateLerpTime: 0.099999994
+  MoveLerpTime: 0.09999999
+  RotateLerpTime: 0.09999999
   ScaleLerpTime: 0
+  MaintainScale: 1
   GoalPosition: {x: 0, y: 0, z: 0}
   GoalRotation: {x: 0, y: 0, z: 0, w: 0}
-  GoalScale: {x: 1, y: 1, z: 1}
-  Smoothing: 1
+  GoalScale: {x: 0, y: 0, z: 0}
+  Smoothing: 0
   Lifetime: 0
   ReferenceDirection: 1
   MinDistance: 0.75
@@ -378,14 +392,3 @@ MonoBehaviour:
   IgnoreAngleClamp: 0
   IgnoreDistanceClamp: 0
   OrientToRefDir: 0
---- !u!114 &114560165092488622
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1102496221193822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87713fbad4edbc46a3cc23770b0b4c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
