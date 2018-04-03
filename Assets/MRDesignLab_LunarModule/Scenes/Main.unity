@@ -3990,9 +3990,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 426556510}
+  - component: {fileID: 426556507}
   - component: {fileID: 426556509}
   - component: {fileID: 426556508}
-  - component: {fileID: 426556507}
   m_Layer: 5
   m_Name: FinishScanning
   m_TagString: Untagged
@@ -4016,32 +4016,29 @@ BoxCollider:
 --- !u!114 &426556508
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114923822525732462, guid: 1ba821969879a994ea1301c6b9c23bb6,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 426556506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7f67074a40850544a196681fad1325f, type: 3}
+  m_Script: {fileID: 11500000, guid: e635884a86ae9034cbeb299ddaf98a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoundProfile: {fileID: 11400000, guid: 7b6dfeca62ba7c24b83a85883573e353, type: 2}
+  Profile: {fileID: 0}
   audioSource: {fileID: 0}
 --- !u!114 &426556509
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114028004023545408, guid: 1ba821969879a994ea1301c6b9c23bb6,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 426556506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e77a98cf320fe9340a55eecfe4567ca4, type: 3}
+  m_Script: {fileID: 11500000, guid: fce0c3cd511432d46b1e2b32aceddf27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FilterTag:
-    Tag: Default
   ButtonState: 4
+  ButtonPressFilter: 1
   RequireGaze: 1
   MainCollider: {fileID: 426556507}
   MainRenderer: {fileID: 0}
@@ -6732,7 +6729,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 709546996}
-  m_LocalRotation: {x: 0.0033615762, y: -0.99872863, z: -0.0030398446, w: -0.05020737}
+  m_LocalRotation: {x: 0.003361576, y: -0.99872863, z: -0.0030398446, w: -0.05020737}
   m_LocalPosition: {x: 0.017499998, y: 0.226, z: 0.0415}
   m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
   m_Children:
@@ -8211,6 +8208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c1ccfda14f4b6046b1f588a46d19152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dontDestroyParentRootOnLoad: 1
   AlphaCurve:
     serializedVersion: 2
     m_Curve:

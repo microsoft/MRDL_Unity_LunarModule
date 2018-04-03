@@ -2,14 +2,15 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 //
-using HUX.Buttons;
-using HUX.Interaction;
+//using HUX.Interaction;
+using MixedRealityToolkit.InputModule.InputHandlers;
+using MixedRealityToolkit.InputModule.EventData;
 using System.Collections;
 using UnityEngine;
 
 namespace MRDL
 {
-    public class PlacementScreen : GameScreen
+    public class PlacementScreen : GameScreen, IInputHandler
     {
         public override void Activate(ProgramStateEnum state) {
             base.Activate(state);
@@ -24,26 +25,44 @@ namespace MRDL
             confirmPlacementParent.SetActive(false);
         }
 
-        protected override void OnTapped(GameObject obj, InteractionManager.InteractionEventArgs eventArgs)
+        public void OnInputDown(InputEventData eventData) { }
+        public void OnInputUp(InputEventData eventData)
         {
-            base.OnTapped(obj, eventArgs);
-
-            switch (obj.name)
+            if (eventData.selectedObject != null)
             {
-                case "ConfirmPlacement":
-                    // Let landing pad placement know that we've chosen our landing pad spot
-                    if (!LandingPadManager.Instance.LandingPlacementConfirmed) {
-                        LandingPadManager.Instance.ConfirmLandingPadPlacement();
-                    } else {
-                        LandingPadManager.Instance.ConfirmStartupPadPlacement();
-                    }
-                    break;
-
-                default:
-                    Debug.LogError("Unknown button choice in " + name + ": " + obj.name);
-                    break;
+                // Let landing pad placement know that we've chosen our landing pad spot
+                if (!LandingPadManager.Instance.LandingPlacementConfirmed)
+                {
+                    LandingPadManager.Instance.ConfirmLandingPadPlacement();
+                }
+                else
+                {
+                    LandingPadManager.Instance.ConfirmStartupPadPlacement();
+                }
             }
         }
+
+        //**** Replacing OnTapped with IInputHandler
+        //protected override void OnTapped(GameObject obj, InteractionManager.InteractionEventArgs eventArgs)
+        //{
+        //    base.OnTapped(obj, eventArgs);
+
+        //    switch (obj.name)
+        //    {
+        //        case "ConfirmPlacement":
+        //            // Let landing pad placement know that we've chosen our landing pad spot
+        //            if (!LandingPadManager.Instance.LandingPlacementConfirmed) {
+        //                LandingPadManager.Instance.ConfirmLandingPadPlacement();
+        //            } else {
+        //                LandingPadManager.Instance.ConfirmStartupPadPlacement();
+        //            }
+        //            break;
+
+        //        default:
+        //            Debug.LogError("Unknown button choice in " + name + ": " + obj.name);
+        //            break;
+        //    }
+        //}
 
         protected IEnumerator ShowPlacementFeedback () {
             landingPadIntructions.SetActive(true);
